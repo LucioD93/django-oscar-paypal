@@ -286,14 +286,14 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
         # It's recommend not to set 'confirmed shipping' if supplying the
         # shipping address directly.
         params['REQCONFIRMSHIPPING'] = 0
-        params['SHIPTONAME'] = shipping_address.name
-        params['SHIPTOSTREET'] = shipping_address.line1
-        params['SHIPTOSTREET2'] = shipping_address.line2
-        params['SHIPTOCITY'] = shipping_address.line4
-        params['SHIPTOSTATE'] = shipping_address.state
-        params['SHIPTOZIP'] = shipping_address.postcode
-        params['SHIPTOCOUNTRYCODE'] = shipping_address.country.iso_3166_1_a2
-        params['SHIPTOPHONENUM'] = shipping_address.phone_number
+        params['PAYMENTREQUEST_0_SHIPTONAME'] = shipping_address.name
+        params['PAYMENTREQUEST_0_SHIPTOSTREET'] = shipping_address.line1
+        params['PAYMENTREQUEST_0_SHIPTOSTREET2'] = shipping_address.line2
+        params['PAYMENTREQUEST_0_SHIPTOCITY'] = shipping_address.line4
+        params['PAYMENTREQUEST_0_SHIPTOSTATE'] = shipping_address.state
+        params['PAYMENTREQUEST_0_SHIPTOZIP'] = shipping_address.postcode
+        params['PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE'] = shipping_address.country.iso_3166_1_a2
+        params['PAYMENTREQUEST_0_SHIPTOPHONENUM'] = shipping_address.phone_number
 
         # For US addresses, we need to try and convert the state into 2 letter
         # code - otherwise we can get a 10736 error as the shipping address and
