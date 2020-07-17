@@ -298,10 +298,10 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
         # For US addresses, we need to try and convert the state into 2 letter
         # code - otherwise we can get a 10736 error as the shipping address and
         # zipcode don't match the state. Very silly really.
-        if params['SHIPTOCOUNTRYCODE'] == 'US':
-            key = params['SHIPTOSTATE'].lower().strip()
+        if params['PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE'] == 'US':
+            key = params['PAYMENTREQUEST_0_SHIPTOSTATE'].lower().strip()
             if key in us_states.STATES_NORMALIZED:
-                params['SHIPTOSTATE'] = us_states.STATES_NORMALIZED[key]
+                params['PAYMENTREQUEST_0_SHIPTOSTATE'] = us_states.STATES_NORMALIZED[key]
 
     elif no_shipping:
         params['NOSHIPPING'] = 1
