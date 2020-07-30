@@ -281,7 +281,7 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
 
     # Shipping details (if already set) - we override the SHIPTO* fields and
     # set a flag to indicate that these can't be altered on the PayPal side.
-    if shipping_method and shipping_address:
+    if shipping_method.code != "pickup" and shipping_address:
         params['ADDROVERRIDE'] = 1
         # It's recommend not to set 'confirmed shipping' if supplying the
         # shipping address directly.
@@ -303,7 +303,7 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
             if key in us_states.STATES_NORMALIZED:
                 params['PAYMENTREQUEST_0_SHIPTOSTATE'] = us_states.STATES_NORMALIZED[key]
 
-    elif no_shipping:
+    elif no_shipping or shipping_method.code == "pickup"::
         params['NOSHIPPING'] = 1
 
     # Shipping charges
