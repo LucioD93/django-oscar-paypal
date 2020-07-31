@@ -303,7 +303,7 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
             if key in us_states.STATES_NORMALIZED:
                 params['PAYMENTREQUEST_0_SHIPTOSTATE'] = us_states.STATES_NORMALIZED[key]
 
-    elif no_shipping or shipping_method.code == "pickup"::
+    elif no_shipping or shipping_method.code == "pickup":
         params['NOSHIPPING'] = 1
 
     # Shipping charges
