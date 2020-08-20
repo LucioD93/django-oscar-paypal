@@ -127,6 +127,10 @@ class RedirectView(CheckoutSessionMixin, RedirectView):
             # in testing mode
             params['host'] = self.request.META['HTTP_HOST']
 
+        print("HEY")
+        print(self.request)
+        print(self.request.META['HTTP_HOST'])
+
         if user.is_authenticated:
             params['user'] = user
 
