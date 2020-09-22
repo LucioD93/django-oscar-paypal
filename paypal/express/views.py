@@ -165,7 +165,7 @@ class CancelResponseView(RedirectView):
 # refactored to pass variables around more explicitly (instead of assigning
 # things to self so they are accessible in a later method).
 class SuccessResponseView(PaymentDetailsView):
-    template_name_preview = 'paypal/express/preview.html'
+    template_name_preview = 'oscar/checkout/preview.html'
     preview = True
 
     error_message = _("A problem occurred communicating with PayPal - please try again later")
